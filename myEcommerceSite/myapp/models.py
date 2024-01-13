@@ -90,3 +90,6 @@ class Product(models.Model):
     created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     product_category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
     is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title

@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import BasePermission
+from rest_framework.permissions import BasePermission, IsAuthenticated
 from rest_framework import status
 
 from .serializers import ProductSerializer, ProductCategorySerializer
@@ -125,3 +125,11 @@ class ProductCategoryAPIView(APIView):
             return ProductCategory.objects.get(pk=pk)
         except ProductCategory.DoesNotExist:
             raise Response(status=status.HTTP_404_NOT_FOUND)
+
+
+class ActiveProductsView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        active_products = Product.objects.filter(is_active=True)
+        serializer = ProductSerializer(active_products, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
