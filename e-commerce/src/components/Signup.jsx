@@ -15,7 +15,7 @@ const Signup = () => {
   const handleSignup = async () => {
     try {
       console.log("request is going to send");
-      const response = await axios.post('http://127.0.0.1:8000/api/signup', {
+      const response = await axios.post('http://127.0.0.1:8000/api/signup/', {
         username,
         email,
         user_type: userType,

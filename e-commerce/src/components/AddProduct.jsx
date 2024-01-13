@@ -134,9 +134,13 @@ function AddProduct({product, create=true}) {
       </Form.Group>
       <br/>
       <Row></Row>
-      <Button style={{width:"50%", margin:"auto"}} variant="primary" type="submit">
+      <Button style={{width:"20%", margin:"auto", float:"right"}} variant="primary" type="submit">
         {create ? 'Create' : 'Update'}
       </Button>
+      <Button style={{width:"20%", margin:"auto", float:"right", margin:"2px"}} variant="danger" type="reset">
+        Reset
+      </Button>
+      
     </Form>
     </>
   )

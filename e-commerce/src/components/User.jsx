@@ -35,10 +35,11 @@ function User() {
           <p>
             <strong>@{user.username}</strong> 
           </p>
+         
           <p>
             <strong>Email:</strong> {user.email}
           </p>
-          
+           <p>Available balance : $ <strong>{user.wallet_balance}</strong></p>
         </Col>
       </Row>
     </Container>
